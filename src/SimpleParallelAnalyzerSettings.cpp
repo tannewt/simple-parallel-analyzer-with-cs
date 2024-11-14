@@ -23,6 +23,7 @@ SimpleParallelAnalyzerSettings::SimpleParallelAnalyzerSettings()
 
         mDataChannelsInterface.push_back( data_channel_interface );
     }
+    num_used_channels = 0;
 
 
     mClockChannelInterface.reset( new AnalyzerSettingInterfaceChannel() );
@@ -77,7 +78,7 @@ SimpleParallelAnalyzerSettings::~SimpleParallelAnalyzerSettings()
 bool SimpleParallelAnalyzerSettings::SetSettingsFromInterfaces()
 {
     U32 count = mDataChannels.size();
-    U32 num_used_channels = 0;
+    num_used_channels = 0;
     for( U32 i = 0; i < count; i++ )
     {
         if( mDataChannelsInterface[ i ]->GetChannel() != UNDEFINED_CHANNEL )

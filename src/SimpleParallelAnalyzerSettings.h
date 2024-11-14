@@ -23,6 +23,7 @@ class SimpleParallelAnalyzerSettings : public AnalyzerSettings
     virtual void LoadSettings( const char* settings );
     virtual const char* SaveSettings();
 
+    U32 EnabledChannels() { return num_used_channels; }
 
     std::vector<Channel> mDataChannels;
     Channel mClockChannel;
@@ -32,6 +33,7 @@ class SimpleParallelAnalyzerSettings : public AnalyzerSettings
 
   protected:
     std::vector<AnalyzerSettingInterfaceChannel*> mDataChannelsInterface;
+    U32 num_used_channels;
 
     std::unique_ptr<AnalyzerSettingInterfaceChannel> mClockChannelInterface;
     std::unique_ptr<AnalyzerSettingInterfaceChannel> mChipSelectChannelInterface;
